@@ -241,8 +241,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deckJSON: {fileID: 4900000, guid: caff80825454742cba113312425f8137, type: 3}
   layoutJSON: {fileID: 4900000, guid: 0579412819a174464adf828afde18c5f, type: 3}
+  xOffset: 3
+  yOffset: -3.5
+  layoutCenter: {x: 0, y: 0, z: 0}
   deck: {fileID: 0}
   layout: {fileID: 0}
+  drawPile: []
+  layoutAnchor: {fileID: 0}
+  target: {fileID: 0}
+  tableau: []
+  discardPile: []
 --- !u!114 &827460515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf33fe9debb5d14f8426f01f7db4927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startFaceUp: 1
+  startFaceUp: 0
   suitClub: {fileID: 21300000, guid: f2e3abd22e9ae4d17ab5c0659ff3e024, type: 3}
   suitDiamond: {fileID: 21300000, guid: f8c2745f3b53149c595d8fde43185468, type: 3}
   suitHeart: {fileID: 21300000, guid: 3f3ffa8970b63467cad6ba98725b1c95, type: 3}

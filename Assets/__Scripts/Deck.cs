@@ -176,13 +176,13 @@ public class Deck : MonoBehaviour
 
     private void AddBack(Card card)
     {
-        _tGO = Instantiate(prefabCard);
+        _tGO = Instantiate(prefabSprite) as GameObject;
         _tSR = _tGO.GetComponent<SpriteRenderer>();
         _tSR.sprite = cardBack;
         _tGO.transform.SetParent(card.transform);
         _tGO.transform.localPosition = Vector3.zero;
         _tSR.sortingOrder = 2;
-        _tSR.name = "back";
+        _tGO.name = "back";
         card.back = _tGO;
         card.faceUp = startFaceUp;
     }

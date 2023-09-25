@@ -14,6 +14,7 @@ public class Card : MonoBehaviour
     public List<GameObject> pipGOs = new List<GameObject>();
     public GameObject back;
     public CardDefinition def;
+    public SpriteRenderer[] spriteRenderers;
 
     public bool faceUp
     {
@@ -26,18 +27,58 @@ public class Card : MonoBehaviour
             back.SetActive(!value);
         }
     }
-
-
-    // Start is called before the first frame update
-    void Start()
+    
+    virtual public void OnMouseUpAsButton()
     {
-        
+        print(name);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        SetSortOrder(0);
+    }
+
+    public void SetSortOrder(int sOrder)
+    {
+        PopulateSpriteRenderers();
+
+        foreach(SpriteRenderer sprite in spriteRenderers )
+        {
+            if(sprite.gameObject == this.gameObject)
+            {
+                sprite.sortingOrder = sOrder;
+                continue;
+            }
+            switch (sprite.gameObject.name)
+            {
+                case "back":
+                    sprite.sortingOrder = sOrder+2;
+                    break;
+                case "face":
+                default:
+                    sprite.sortingOrder = sOrder+1;
+                    break;
+            }                
+        }
+
+    }
+
+    public void SetSortingLayerName(string name)
+    {
+        PopulateSpriteRenderers();
+
+        foreach (SpriteRenderer sprite in  spriteRenderers)
+        {
+            sprite.sortingLayerName = name;
+        }
+    }
+
+    public void PopulateSpriteRenderers()
+    {
+        if (spriteRenderers == null || spriteRenderers.Length == 0)
+        {
+            spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        }
     }
 }
 
